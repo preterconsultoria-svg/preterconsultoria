@@ -640,15 +640,10 @@ function enviarForm(){
     email: document.getElementById('f-email').value,
   };
 
-  /* ▼ COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT (a mesma do formulário antigo) ▼ */
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxVTefTs5ghj6zowmXd6RQ2-iuTD7dHyIUqlecOFnyc3purp1Nvw8qmHtKdFY4B_LypQw/exec';
+ /* ▼ COLE AQUI A URL DO SEU GOOGLE APPS SCRIPT (a mesma do formulário antigo) ▼ */
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxha6oPSIbXpqUZvSpP1tWw7OeRGCaOj_avoGoGqP_VUa2ebeSDwlcI9TTZ83NuXF96oQ/exec';
 
-  if(SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbxVTefTs5ghj6zowmXd6RQ2-iuTD7dHyIUqlecOFnyc3purp1Nvw8qmHtKdFY4B_LypQw/exec'){
-    setTimeout(mostrarSucesso, 1100);
-    return;
-  }
-
-  fetch(SCRIPT_URL, { method:'POST', body: JSON.stringify(dados) })
+  fetch(SCRIPT_URL, { method:'POST', mode:'no-cors', body: JSON.stringify(dados) })
     .then(mostrarSucesso)
     .catch(mostrarSucesso);
 }
